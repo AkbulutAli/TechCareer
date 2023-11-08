@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+
+    //boşluktan kurtulma
+    var firstName = "  Çağatay Yıldız";
+    result2 = firstName.replace(" ", "");
+    console.log(result2)
+
+    //kelimler arası boşluk kaldırma 
+    var firstName1 = "cagatay yildiz";
+    result = firstName1.replace(" ", "").toUpperCase()
+    console.log(result);
+
+    //yıldızları kaldırma
+    var firstName2 = "******Çağatay Yıldız";
+    console.log(firstName2.replaceAll("*", ""));
+
+
+    //yıldızları boşlukta değiştirme
+    var firstName3 = "**Tech Career**";
+    console.log(firstName3.replaceAll("*", ""));
+
+    // yıldızları ekleme
+    var firstName4 = "Tech Career";
+    console.log("***" + firstName4 + "***");
+
+    // 2 boşluğu teke çevirme
+    var firstName5 = "Çağatay  Yıldız";
+    console.log(firstName5.replaceAll("  "," "));
+
+    
+</script>
+
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Grid</title>
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .card {
+            border: 1px solid #d7d7d7;
+            border-radius: 0.5em;
+            padding: 20px;
+        }
+
+
+        .product_code {
+            color: #858585;
+            font-size: 12px;
+        }
+
+        .cargo {
+            margin-left: 10%;
+            width: 70%;
+            height: 20px;
+            border: 1px solid #e1e7ef;
+            border-radius: 1em;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #3367d1;
+        }
+
+        .price {
+            color: #003177;
+        }
+
+        .turk {
+            color: #003177;
+            font-size: 12px;
+        }
+
+        .card img {
+            max-width: 100%;
+            height: auto;
+            width: 100%;
+        }
+
+        @media only screen and (max-width: 800px) {
+            .container {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media only screen and (max-width: 500px) {
+            .container {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    </style>
+
+
+</head>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div>
+                <img src="https://cdn.vatanbilgisayar.com/Upload/PRODUCT/apple/thumb/129885-1_small.jpg" alt="">
+            </div>
+            <div>
+                <div class="product_code">
+                    MLPG3TU/A
+                </div>
+                <div>
+                    <a>iPhone 13 128 Gb Akıllı Telefon Yıldız Işığı</a>
+
+                </div>
+                <br>
+                <div>
+                    <span class="price">36.499 </span> <span class="turk">TL</span>
+
+                </div>
+                <br>
+                <div class="cargo">
+
+                    KARGO BEDAVA
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div>
+                <img src="https://cdn.vatanbilgisayar.com/Upload/PRODUCT/acer/thumb/140541-1_small.jpg" alt="">
+            </div>
+            <div>
+                <div class="product_code">
+                    A315-58-5258
+                </div>
+                <div>
+                    <a>Acer Aspire 3 11.Nesil Core i5 1135G7-8Gb-512Gb Ssd-15.6inc-W11</a>
+
+                </div>
+                <br>
+                <div>
+                    <span class="price">13.999</span> <span class="turk">TL</span>
+                </div>
+                <br>
+                <div class="cargo">
+
+                    KARGO BEDAVA
+                </div>
+            </div>
+
+
+        </div>
+        <div class="card">
+            <div>
+                <img src="https://cdn.vatanbilgisayar.com/Upload/PRODUCT/onvo/thumb/139337-1_small.jpg" alt="">
+            </div>
+            <div>
+                <div class="product_code">
+                    OV55F950
+                </div>
+                <div>
+                    <a>ONVO OV55F950 55inc 140 cm UHD Frameless Google Smart TV,Uydu Alıcılı</a>
+
+                </div>
+                <br>
+                <div>
+                    <span class="price">10.399</span> <span class="turk">TL</span>
+                </div>
+                <br>
+                <div class="cargo">
+
+                    KARGO BEDAVA
+                </div>
+            </div>
+
+        </div>
+        <div class="card">
+            <div>
+                <img src="https://cdn.vatanbilgisayar.com/Upload/PRODUCT/philips/thumb/123248_small.jpg" alt="">
+            </div>
+            <div>
+                <div class="product_code">
+                    DST5020/30
+                </div>
+                <div>
+                    <a>PHILIPS DST5020/30 BUHARLI ÜTÜ</a>
+
+                </div>
+                <br>
+                <div>
+                    <span class="price">1.199 </span><span class="turk">TL</span>
+                </div>
+                <br>
+                <div class="cargo">
+
+                    KARGO BEDAVA
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</body>
+
+</html>
