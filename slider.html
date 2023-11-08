@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            text-align: center;
+        }
+        img {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60%;
+            padding-left: 20%;
+            object-fit: cover;
+            transition: all 0.5s ease-in-out;
+        }
+        
+        button {
+            margin-top: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+       
+
+    </style>
+    
+</head>
+<body>
+    <img name="slide",width="400",height="200">
+    <button onclick="nextImage()"><i>İleri</i></button>
+    <button onclick="prevImage()"><i>Geri</i></button>
+</body>
+<script>
+    var i = 0;
+    var images = [
+        "https://picsum.photos/id/237/400/200",
+        "https://picsum.photos/id/238/400/200",
+        "https://picsum.photos/id/239/400/200",
+        "https://picsum.photos/id/240/400/200"
+    ]
+
+    function nextImage() {
+        document.slide.src = images[i];
+        if (i < images.length - 1) {
+            i++;
+        } else {
+            i = 0;
+        }
+    }
+
+    function prevImage() {
+        document.slide.src = images[i];
+        if (i > 0) {
+            i--;
+        } else {
+            i = images.length - 1;
+        }
+    }
+
+    var duration = 3000;
+    function changeImage() {
+        document.slide.src = images[i];
+        if (i < images.length - 1) {
+            i++;
+        } else {
+            i = 0;
+        }
+        setTimeout("changeImage()", duration);
+    }
+    window.onload = changeImage
+
+</script>
+</html>
