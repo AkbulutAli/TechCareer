@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    const uniqueRandomArray = () => {
+        let numbers = [];
+
+        for (let i = 0; i < 6; i++) {
+            let randomNumber = Math.floor(Math.random() * 49);
+            if (numbers.includes(randomNumber)) {
+                i--; 
+            } else {
+                numbers.push(randomNumber);
+            }
+        }
+        console.log(numbers);
+        return numbers;
+    };
+</script>
+
+</html>
