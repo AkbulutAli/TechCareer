@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.1/axios.min.js"
+        integrity="sha512-m9S8W3a9hhBHPFAbEIaG7J9P92dzcAWwM42VvJp5n1/M599ldK6Z2st2SfJGsX0QR4LfCVr681vyU5vW8d218w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <label for="">Name</label>
+    <input type="text" id="name">
+    <label for="">Unit Price</label>
+    <input type="text" id="unitPrice">
+    <label for="">Stock</label>
+    <input type="text" id="stock">
+    <button onclick="addProduct()">Add Products</button>
+    <button onclick="celarText()">Clear</button>
+</body>
+<script>
+    
+     function addProduct(){
+        var name = document.getElementById('name').value
+        var unitPrice = document.getElementById('unitPrice').value
+        var stock = document.getElementById('stock').value
+    
+        
+        if (isNaN(unitPrice)) {
+            alert('Unit price sayı olmalıdır')
+            return
+        }
+        
+        if (isNaN(stock)) {
+            alert('Stok sayı olmalıdır')
+            return
+        }
+
+        if (unitPrice==0 || unitPrice<0 ) {
+            alert('Unit price 0 veya negatif olamaz')
+            return 
+        }
+
+        if (stock==0 || stock<0 ) {
+            alert('Stok 0 veya negatif olamaz')
+            return 
+        }
+        axios.post('https://northwind.vercel.app/api/products', {
+            name: name,
+            unitPrice: unitPrice,
+            unitsInStock: stock
+        })
+        document.getElementById('name').value = ''
+        document.getElementById('unitPrice').value = ''
+        document.getElementById('stock').value = ''
+
+    }
+    function celarText(){
+        document.getElementById('name').value = ''
+        document.getElementById('unitPrice').value = ''
+        document.getElementById('stock').value = ''
+    }
+
+
+</script>
+
+</html>
