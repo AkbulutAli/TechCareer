@@ -10,30 +10,43 @@
         integrity="sha512-m9S8W3a9hhBHPFAbEIaG7J9P92dzcAWwM42VvJp5n1/M599ldK6Z2st2SfJGsX0QR4LfCVr681vyU5vW8d218w=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <style>
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-left: 280px;
+            padding-right: 280px;
 
+
+        }
     </style>
 </head>
 
 <body>
-    <div>
-        <label for="">Company Name</label>
-        <input type="text" id="companyName">
-        <label for="">Contact Name</label>
-        <input type="text" id="contactName">
-        <label for="">Contact Title</label>
-        <input type="text" id="contactTitle">
-        <button onclick="addCustomer()">Add</button>
-        <button onclick="celarText()">Clear</button>
+    <div class="flex-container">
+        <div>
+            <label for="">Company Name</label>
+            <input type="text" id="companyName">
+            <label for="">Contact Name</label>
+            <input type="text" id="contactName">
+            <label for="">Contact Title</label>
+            <input type="text" id="contactTitle">
+            <button onclick="addCustomer()">Add</button>
+            <button onclick="celarText()">Clear</button>
 
+        </div>
+        <div>
+            <label for="">Customer Id</label>
+            <input type="text" id="customerId">
+            <button onclick="deleteCustomer()">Delete</button>
+        </div>
     </div>
+
     <ul>
 
     </ul>
-    <div>
-        <label for="">Customer Id</label>
-        <input type="text" id="customerId">
-        <button onclick="deleteCustomer()">Delete</button>
-    </div>
+
 
 </body>
 <script>
@@ -45,6 +58,16 @@
         })
 
     })
+    function get() {
+        axios.get('https://northwind.vercel.app/api/customers').then(res => {
+            res.data.forEach(element => {
+                var liElement = document.createElement('li')
+                liElement.innerText = element.companyName + " " + element.contactName + " " + element.contactTitle
+                document.querySelector('ul').appendChild(liElement)
+            })
+
+        })
+    }
 
     function addCustomer() {
         var companyName = document.getElementById('companyName').value
@@ -58,16 +81,10 @@
             contactTitle: contactTitle
         })
             .then(res => {
+                get()
                 console.log(res + "eklendi.")
             })
-        axios.get('https://northwind.vercel.app/api/customers').then(res => {
-            res.data.forEach(element => {
-                var liElement = document.createElement('li')
-                liElement.innerText = element.companyName + " " + element.contactName + " " + element.contactTitle
-                document.querySelector('ul').appendChild(liElement)
-            })
 
-        })
         celarText();
 
     }
@@ -85,16 +102,15 @@
         axios.delete('https://northwind.vercel.app/api/customers/' + customerId)
             .then(res => {
                 console.log(res + "silindi.")
+                get();
             })
-        celarText();
+        clearText();
 
-        function celarText() {
+        function clearText() {
             document.getElementById('customerId').value = ''
         }
 
     }
-
-
 
 </script>
 
