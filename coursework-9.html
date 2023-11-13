@@ -12,10 +12,10 @@
 </head>
 
 <body>
-    <div>
+    <h1>
         
 
-    </div>
+    </h1>
     <ul>
 
     </ul>
@@ -24,6 +24,8 @@
 <script>
     
      function getProducts(){
+        
+
         axios.get('https://northwind.vercel.app/api/products')
         .then(res => {
             i = 0;
@@ -36,9 +38,9 @@
                 i++;
             });
 
-            var divElement = document.createElement('div')
+            var divElement = document.createElement('h1')
             divElement.innerText ='Lenght:'+''+i
-            document.querySelector('div').appendChild(divElement)
+            document.querySelector('h1').appendChild(divElement)
 
         })}
 
