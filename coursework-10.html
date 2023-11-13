@@ -22,43 +22,46 @@
     <button onclick="celarText()">Clear</button>
 </body>
 <script>
-    
-     function addProduct(){
+
+    function addProduct() {
         var name = document.getElementById('name').value
         var unitPrice = document.getElementById('unitPrice').value
         var stock = document.getElementById('stock').value
-    
-        
+
+
         if (isNaN(unitPrice)) {
             alert('Unit price sayı olmalıdır')
             return
         }
-        
+
         if (isNaN(stock)) {
             alert('Stok sayı olmalıdır')
             return
         }
 
-        if (unitPrice==0 || unitPrice<0 ) {
+        if (unitPrice == 0 || unitPrice < 0) {
             alert('Unit price 0 veya negatif olamaz')
-            return 
+            return
         }
 
-        if (stock==0 || stock<0 ) {
+        if (stock == 0 || stock < 0) {
             alert('Stok 0 veya negatif olamaz')
-            return 
+            return
         }
         axios.post('https://northwind.vercel.app/api/products', {
             name: name,
             unitPrice: unitPrice,
             unitsInStock: stock
+        }).then(res => {
+            console.log(res + "eklendi.")
         })
+
         document.getElementById('name').value = ''
         document.getElementById('unitPrice').value = ''
         document.getElementById('stock').value = ''
 
     }
-    function celarText(){
+    function celarText() {
         document.getElementById('name').value = ''
         document.getElementById('unitPrice').value = ''
         document.getElementById('stock').value = ''
